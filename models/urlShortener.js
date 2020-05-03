@@ -16,10 +16,6 @@ const shortUrlSchema = new mongoose.Schema({
     required : true,
     default : 0
   },
-  calcDate : {
-    type : String,
-    default : new Date()
-  },
   date : {
     type : String,
     default : new Date().toUTCString()

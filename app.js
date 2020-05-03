@@ -19,7 +19,7 @@ app.get("/", async function(req,res){
 
 app.get("/archives", async function(req,res){             /////archives page
   // const shortUrls = await shortUrl.find();
-  const shortUrls = await shortUrl.find().sort({calcDate:-1});
+  const shortUrls = await shortUrl.find().sort({date:-1});
   res.render("archives",{baseurl:baseurl,shortUrls:shortUrls});
 });
 
