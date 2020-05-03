@@ -4,7 +4,7 @@ const shortUrl = require("./models/urlShortener");    //shortUrl is the model
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://admin-hardik:hardikmongo@hardikurlshort-t04rh.mongodb.net/urlshortener",{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://<YOUR MONGODB ATLAS DATABASE>/<COLLECTION NAME>",{useNewUrlParser: true, useUnifiedTopology: true});
 
 const app = express();
 app.set("view engine","ejs");              ////sets the templating or view engine to ejs
