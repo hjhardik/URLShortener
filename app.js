@@ -6,13 +6,12 @@ const mongoose = require("mongoose");
 
 mongoose.connect("mongodb+srv://admin-hardik:hardikmongo@hardikurlshort-t04rh.mongodb.net/urlshortener",{useNewUrlParser: true, useUnifiedTopology: true});
 
-
-var baseurl = '';
-
 const app = express();
 app.set("view engine","ejs");              ////sets the templating or view engine to ejs
 app.use(bodyParser.urlencoded({extended:true})); ///middleware for parsing bodies from url
 app.use(express.static(__dirname+"/public"));   ///defines where the static files are stored
+
+const baseurl = "https://intense-savannah-12271.herokuapp.com/";
 
 app.get("/", async function(req,res){
     res.render("index");
@@ -21,7 +20,7 @@ app.get("/", async function(req,res){
 app.get("/archives", async function(req,res){             /////archives page
   // const shortUrls = await shortUrl.find();
   const shortUrls = await shortUrl.find().sort({calcDate:-1});
-  res.render("archives",{baseurl:baseurl, shortUrls:shortUrls});
+  res.render("archives",{baseurl:baseurl,shortUrls:shortUrls});
 });
 
 app.get("/about", function(req,res){               /////about page
@@ -30,7 +29,8 @@ app.get("/about", function(req,res){               /////about page
 
 app.get("/shorten", function(req,res){
   res.redirect("/");
-})
+});
+
 app.post("/shorten", async function(req,res){
   let longUrl = req.body.longUrl;
   await shortUrl.create({full : longUrl});
