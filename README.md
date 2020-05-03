@@ -9,4 +9,4 @@ The shortened URL can be copied directly to the clipboard:
 ![Short URL created](public/images/shorten.png)
 
 All the past shortened URLs can be accessed from the archives section:
-![Archives](public/images/archives.png)
+![Archives](public/images/archive.png)
